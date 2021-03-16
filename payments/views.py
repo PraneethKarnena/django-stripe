@@ -17,11 +17,11 @@ def signup(request):
     return render(request, 'payments/signup.html')
 
 
-def login(request):
+def signin(request):
     if request.method == 'POST':
         user = authenticate(username=request.POST['email'], password=request.POST['password'])
         if user:
-            login(user)
+            login(request, user)
             return HttpResponseRedirect(reverse('payments'))
 
         return HttpResponse('Invalid credentials')
