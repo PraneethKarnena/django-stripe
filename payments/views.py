@@ -22,6 +22,7 @@ def login(request):
         user = authenticate(username=request.POST['email'], password=request.POST['password'])
         if user:
             login(user)
+            return HttpResponseRedirect(reverse('payments'))
 
         return HttpResponse('Invalid credentials')
 
