@@ -126,3 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Stripe settings
+STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY', cast=str)
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY', cast=str)
+STRIPE_PRICE_ID = env('STRIPE_PRICE_ID', cast=str)
