@@ -10,6 +10,7 @@ urlpatterns = [
 
     path('session/', views.create_checkout_session, name='session'),
     path('checkout/', views.checkout, name='checkout'),
-    
+    path('billing/', views.manage_billing, name='billing'),
+
     path('message/', views.show_message, name='message'),
 ]

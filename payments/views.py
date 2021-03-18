@@ -70,3 +70,12 @@ def show_message(request):
 @login_required
 def checkout(request):
     return render(request, 'payments/checkout.html', {'STRIPE_PUBLISHABLE_KEY': settings.STRIPE_PUBLISHABLE_KEY})
+
+
+@login_required
+def manage_billing(request):
+    session = stripe.billing_portal.Session.create(
+        customer='cus_J8C20GxZyUtC7a',
+        return_url=f'http://{request.META["HTTP_HOST"]}{reverse("checkout")}',
+    )
+    return HttpResponseRedirect(session.url)
